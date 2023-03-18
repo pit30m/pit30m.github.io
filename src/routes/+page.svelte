@@ -1,24 +1,129 @@
 <script>
-    import YouTubeVideo from '../YouTubeVideo.svelte';
-    let datasetName = "Pit30M"
-</script>
-
-<main class="bg-gray-200 min-h-screen flex items-center justify-center">
-<div class="text-center">
-    <h1 class="text-5xl font-bold mb-6">Welcome to {datasetName}</h1>
-    <p class="text-xl mb-8">Thanks for visiting!</p>
-    <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get started</a>
-    <YouTubeVideo videoId="hJ6A_1YSITo" />
-</div>
-
-
-
-</main>
-
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
-<style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.gray.100);
-  }
-</style>
+    export let samples = [
+      { src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
+      { src: 'sample_image_2.jpg', alt: 'Highway - Nighttime' },
+      { src: 'sample_image_3.jpg', alt: 'Lidar Scan - Intersection' },
+      // ...more samples
+    ];
+  </script>
+  
+  <header class="bg-white shadow-sm py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="text-xl font-semibold">
+        Pit30m
+      </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#" class="text-gray-600 hover:text-gray-900">Home</a></li>
+          <li><a href="https://github.com/user/repo" class="text-gray-600 hover:text-gray-900">GitHub</a></li>
+          <li><a href="https://youtu.be/video-url" class="text-gray-600 hover:text-gray-900">Video</a></li>
+          <li><a href="https://arxiv.org/abs/paper-url" class="text-gray-600 hover:text-gray-900">Paper</a></li>
+          <li><a href="https://dataset-url" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Download Dataset</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="bg-cover bg-center h-96" style="background-image: url('hero_bg.jpg')">
+    <div class="container mx-auto px-4 h-full flex items-center">
+      <div class="text-white">
+        <h1 class="text-4xl font-bold">Pit30m: The Benchmark for Localization in Self-Driving Cars</h1>
+        <p class="text-xl mt-4">Explore the future of autonomous vehicle localization with our comprehensive dataset.</p>
+        <a href="https://dataset-url" class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded inline-block">Get Started</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8">Introducing Pit30m</h2>
+    <p class="text-lg mb-8">Brief description of the dataset, its purpose, and key features.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Add more metrics if needed -->
+      <div class="border p-4 rounded">
+        <h3 class="font-bold mb-4">Partitions</h3>
+        <p>Value or description of the dataset partitions</p>
+      </div>
+      <div class="border p-4 rounded">
+        <h3 class="font-bold mb-4">Number of Images</h3>
+        <p>Value or description of the number of images</p>
+      </div>
+      <div class="border p-4 rounded">
+        <h3 class="font-bold mb-4">Sensors</h3>
+        <p>Value or description of the sensors used</p>
+      </div>
+      <div class="border p-4 rounded">
+        <h3 class="font-bold mb-4">Location</h3>
+        <p>Value or description of the dataset location</p>
+      </div>
+      <div class="border p-4 rounded">
+        <h3 class="font-bold mb-4">Metadata</h3>
+        <p>Value or description of the metadata included</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8">Sample Data</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {#each samples as { src, alt }}
+        <div>
+          <img src="{src}" alt="{alt}" class="w-full rounded shadow">
+          <p class="mt-4">{alt}</p>
+        </div>
+      {/each}
+    </div>
+  </section>
+  
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8">Why Choose Pit30m?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Add more features if needed -->
+      <div>
+        <div class="text-5xl mb-4">🔍</div>
+        <h3 class="font-bold mb-4">High-Quality Data</h3>
+        <p>Our dataset has been meticulously curated to ensure accurate, reliable, and diverse data for benchmarking localization algorithms.</p>
+      </div>
+      <div>
+        <div class="text-5xl mb-4">📄</div>
+        <h3 class="font-bold mb-4">Comprehensive Metadata</h3>
+        <p>Pit30m includes detailed metadata for each data point, providing valuable context and facilitating in-depth analysis.</p>
+      </div>
+      <div>
+        <div class="text-5xl mb-4">🔓</div>
+        <h3 class="font-bold mb-4">Open-Source</h3>
+        <p>Pit30m is freely available for academic and research purposes, promoting collaboration and innovation in the self-driving car community.</p>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="bg-gray-200 py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <div class="text-gray-600">
+          <a href="https://github.com/user/repo" class="mr-4 hover:text-gray-900">GitHub</a>
+          <a href="https://youtu.be/video-url" class="mr-4 hover:text-gray-900">Video</a>
+          <a href="https://arxiv.org/abs/paper-url" class="hover:text-gray-900">Paper</a>
+        </div>
+        <div class="text-gray-600">
+          <p>Email:
+            <a href="mailto:info@pit30m.com" class="hover:text-gray-900">info@pit30m.com</a>
+        </p>
+        <div class="flex space-x-4 mt-4">
+          <a href="https://twitter.com/pit30m" class="text-gray-600 hover:text-gray-900">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com/company/pit30m" class="text-gray-600 hover:text-gray-900">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://youtube.com/channel/pit30m" class="text-gray-600 hover:text-gray-900">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-gray-600">
+        <p>&copy; 2023 Pit30m. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  

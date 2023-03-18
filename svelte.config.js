@@ -9,7 +9,12 @@ const config = {
 
 	kit: {
 		adapter: adapter()
+	},
+
+	ssr: {
+		noExternal: ["svelte-awesome"],
 	}
+	
 };
 
 export default config;

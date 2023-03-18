@@ -1,4 +1,8 @@
 <script>
+    import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
+    import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
+    import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte' 
+    
     export let samples = [
       { src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
       { src: 'sample_image_2.jpg', alt: 'Highway - Nighttime' },
@@ -6,6 +10,13 @@
       // ...more samples
     ];
   </script>
+
+  <style>
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  </style>
   
   <header class="bg-white shadow-sm py-4">
     <div class="container mx-auto px-4 flex justify-between items-center">
@@ -110,13 +121,19 @@
         </p>
         <div class="flex space-x-4 mt-4">
           <a href="https://twitter.com/pit30m" class="text-gray-600 hover:text-gray-900">
-            <i class="fab fa-twitter"></i>
+            <div class="icon text-gray-600">
+              <FaTwitter />
+            </div>
           </a>
           <a href="https://linkedin.com/company/pit30m" class="text-gray-600 hover:text-gray-900">
-            <i class="fab fa-linkedin"></i>
+            <div class="icon text-gray-600">
+                <FaLinkedinIn />
+              </div>
           </a>
           <a href="https://youtube.com/channel/pit30m" class="text-gray-600 hover:text-gray-900">
-            <i class="fab fa-youtube"></i>
+            <div class="icon text-gray-600">
+              <FaYoutube />
+            </div>
           </a>
         </div>
       </div>

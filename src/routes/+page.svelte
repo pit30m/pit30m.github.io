@@ -1,7 +1,10 @@
 <script>
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
-    import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
-    import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte' 
+    import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte';
+    import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte';
+
+    // NOTE(julieta) we can change this to AMSDS or smtn
+    let datasetName = "Pit30M";
     
     export let samples = [
       { src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
@@ -21,7 +24,7 @@
   <header class="bg-white shadow-sm py-4">
     <div class="container mx-auto px-4 flex justify-between items-center">
       <div class="text-xl font-semibold">
-        Pit30m
+        {datasetName}
       </div>
       <nav>
         <ul class="flex space-x-6">
@@ -35,10 +38,12 @@
     </div>
   </header>
   
-  <section class="bg-cover bg-center h-96" style="background-image: url('hero_bg.jpg')">
-    <div class="container mx-auto px-4 h-full flex items-center">
+  <!-- Background image 1 from https://unsplash.com/photos/F6Kj8ovnUvM -->
+  <!-- Background image 2 from https://unsplash.com/photos/yLcPSvJkGrM -->
+  <section class="bg-cover bg-center h-96 relative" style="background-image: url('hero_bg.jpg')">
+    <div class="container mx-auto px-4 h-full flex items-center backdrop-blur-sm bg-black/30">
       <div class="text-white">
-        <h1 class="text-4xl font-bold">Pit30m: The Benchmark for Localization in Self-Driving Cars</h1>
+        <h1 class="text-4xl font-bold">{datasetName}: The Benchmark for Global Localization in the Age of Self-Driving Cars</h1>
         <p class="text-xl mt-4">Explore the future of autonomous vehicle localization with our comprehensive dataset.</p>
         <a href="https://dataset-url" class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded inline-block">Get Started</a>
       </div>
@@ -46,7 +51,7 @@
   </section>
   
   <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8">Introducing Pit30m</h2>
+    <h2 class="text-3xl font-bold mb-8">Introducing {datasetName}</h2>
     <p class="text-lg mb-8">Brief description of the dataset, its purpose, and key features.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Add more metrics if needed -->
@@ -86,7 +91,7 @@
   </section>
   
   <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8">Why Choose Pit30m?</h2>
+    <h2 class="text-3xl font-bold mb-8">Why Choose {datasetName}?</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Add more features if needed -->
       <div>
@@ -138,7 +143,7 @@
         </div>
       </div>
       <div class="mt-8 text-center text-gray-600">
-        <p>&copy; 2023 Pit30m. All rights reserved.</p>
+        <p>&copy; 2023 {datasetName}. All rights reserved.</p>
       </div>
     </div>
   </footer>

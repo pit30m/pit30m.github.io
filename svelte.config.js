@@ -12,9 +12,8 @@ const config = {
 	},
 
 	ssr: {
-		noExternal: ["svelte-awesome"],
+		noExternal: ['svelte-awesome']
 	}
-	
 };
 
 export default config;

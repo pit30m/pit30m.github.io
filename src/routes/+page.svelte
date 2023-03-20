@@ -3,6 +3,8 @@
 	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte';
 	import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte';
 
+	import PointCloudViewer from '../PointCloudViewer.svelte';
+
 	// NOTE(julieta) we can change this to AMSDS or smtn
 	let datasetName = 'Pit30M';
 
@@ -92,6 +94,16 @@
 				<p class="mt-4">{alt}</p>
 			</div>
 		{/each}
+	</div>
+</section>
+
+<section class="container mx-auto px-4 py-12">
+	<h2 class="text-3xl font-bold mb-8">High Quality LiDAR Data</h2>
+
+	<div class="grid gap-6 h-screen">
+		<div>
+			<PointCloudViewer />
+		</div>
 	</div>
 </section>
 

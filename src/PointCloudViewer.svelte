@@ -56,11 +56,6 @@
 		);
 	}
 
-	function theta_to_x(theta) {
-		// theta is in radians
-		return Math.cos(theta);
-	}
-
 	function init() {
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);

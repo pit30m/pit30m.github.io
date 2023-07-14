@@ -1,12 +1,16 @@
-<script>
+<script lang="ts">
 	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
 	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte';
 	import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte';
+	import FaFilePdf from 'svelte-icons/fa/FaFilePdf.svelte';
+	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
 
 	import PointCloudViewer from '../PointCloudViewer.svelte';
+	import YouTube from 'svelte-youtube-embed';
 
 	// NOTE(julieta) we can change this to AMSDS or smtn
-	let datasetName = 'Pit30M';
+	// let datasetName = 'Pit30M';
+	let datasetName = 'Aurora MSDS';
 
 	export let samples = [
 		{ src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
@@ -25,16 +29,16 @@
 			<ul class="flex space-x-6">
 				<li><a href="#" class="text-gray-600 hover:text-gray-900">Home</a></li>
 				<li>
-					<a href="https://github.com/user/repo" class="text-gray-600 hover:text-gray-900">GitHub</a>
+					<a href="https://github.com/pit30m/pit30m" class="text-gray-600 hover:text-gray-900">DevKit</a>
 				</li>
 				<li>
-					<a href="https://youtu.be/video-url" class="text-gray-600 hover:text-gray-900">Video</a>
+					<a href="https://youtu.be/hJ6A_1YSITo" class="text-gray-600 hover:text-gray-900">Video</a>
 				</li>
 				<li>
-					<a href="https://arxiv.org/abs/paper-url" class="text-gray-600 hover:text-gray-900">Paper</a>
+					<a href="https://arxiv.org/abs/2012.12437" class="text-gray-600 hover:text-gray-900">Paper</a>
 				</li>
 				<li>
-					<a href="https://dataset-url" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+					<a href="https://github.com/pit30m/pit30m" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
 						>Download Dataset</a>
 				</li>
 			</ul>
@@ -45,20 +49,47 @@
 <!-- Background image 1 from https://unsplash.com/photos/F6Kj8ovnUvM -->
 <!-- Background image 2 from https://unsplash.com/photos/yLcPSvJkGrM -->
 <section class="bg-cover bg-center h-96 relative" style="background-image: url('hero_bg.jpg')">
-	<div class="container mx-auto px-4 h-full flex items-center backdrop-blur-sm bg-black/30">
+	<div class="container mx-auto px-4 h-full flex items-center backdrop-blur-md bg-black/30">
 		<div class="text-white">
 			<h1 class="text-4xl font-bold">
-				{datasetName}: The Benchmark for Global Localization in the Age of Self-Driving Cars
+				{datasetName}: The Dataset for Global Localization in the Age of Self-Driving Cars
 			</h1>
-			<p class="text-xl mt-4">Explore the future of autonomous vehicle localization with our comprehensive dataset.</p>
-			<a href="https://dataset-url" class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded inline-block"
-				>Get Started</a>
+			<p class="text-xl mt-4">Explore our comprehensive self-driving dataset.</p>
+			<a
+				href="https://arxiv.org/abs/2012.12437"
+				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded-l-lg inline-block text-2xl">
+				<span class="icon">
+					<FaFilePdf />
+				</span> Paper
+			</a>
+			<a
+				href="https://youtu.be/hJ6A_1YSITo"
+				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 inline-block text-2xl">
+				<span class="icon">
+					<FaYoutube />
+				</span> Video
+			</a>
+			<a
+				href="https://github.com/pit30m/pit30m"
+				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded-r-lg inline-block text-2xl">
+				<span class="icon">
+					<FaGithub />
+				</span> DevKit
+			</a>
+		</div>
+	</div>
+</section>
+
+<section class="container mx-auto px-4 py-4">
+	<div class="grid">
+		<h2 class="text-3xl font-bold mb-8">Introducing {datasetName}</h2>
+		<div>
+			<YouTube id="hJ6A_1YSITo" />
 		</div>
 	</div>
 </section>
 
 <section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">Introducing {datasetName}</h2>
 	<p class="text-lg mb-8">Brief description of the dataset, its purpose, and key features.</p>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 		<!-- Add more metrics if needed -->
@@ -152,7 +183,7 @@
 					<a href="mailto:info@pit30m.com" class="hover:text-gray-900">info@pit30m.com</a>
 				</p>
 				<div class="flex space-x-4 mt-4">
-					<a href="https://twitter.com/pit30m" class="text-gray-600 hover:text-gray-900">
+					<a href="https://twitter.com/andreib" class="text-gray-600 hover:text-gray-900">
 						<div class="icon text-gray-600">
 							<FaTwitter />
 						</div>
@@ -178,7 +209,10 @@
 
 <style>
 	.icon {
-		width: 32px;
-		height: 32px;
+		display: inline-block;
+		font-size: inherit;
+		height: 1em;
+		overflow: visible;
+		vertical-align: -0.125em;
 	}
 </style>

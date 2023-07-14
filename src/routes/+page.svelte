@@ -20,11 +20,13 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Aurora Multi-Sensor Dataset</title>
+</svelte:head>
+
 <header class="bg-white shadow-sm py-4">
 	<div class="container mx-auto px-4 flex justify-between items-center">
-		<div class="text-xl font-semibold">
-			{datasetName}
-		</div>
+		<div class="text-xl font-semibold">Aurora Multi-Sensor Dataset (MSDS)</div>
 		<nav>
 			<ul class="flex space-x-6">
 				<li><a href="#" class="text-gray-600 hover:text-gray-900">Home</a></li>

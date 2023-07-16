@@ -7,16 +7,17 @@
 
 	let container;
 	let scene, camera, renderer, points;
-	let frameIndex = 0;
+	let frameIndex = 1;
 	let pointCloudFrames = [];
 
 	let clock = new THREE.Clock();
 	let delta = 0;
 
-	let fps = 10;
+	let fps = 12;
 	let interval = 1 / fps;
 
-	let rotate_speed = 10;
+	let rotate_speed = 0;
+	let fwd = true;
 
 	let r = 20;
 
@@ -63,13 +64,57 @@
 		renderer.setSize(container.clientWidth, container.clientHeight);
 		container.appendChild(renderer.domElement);
 
+
+
 		// rotate each mesh by 90 degrees on the x axis
 		for (let i = 0; i < pointCloudFrames.length; i++) {
-			console.log(i);
-			points = pointCloudFrames[i];
-			points.geometry.rotateX(-Math.PI / 2);
+
+			let geometry = new THREE.BufferGeometry();
+			
+			const points_i = pointCloudFrames[i];
+
+			// console.log(points_i)
+
+			// in-place rotation
+			points_i.geometry.rotateX(-Math.PI / 2);
+
+			// set the colour of each point according to its height
+			let points_xyz = points_i.geometry.attributes.position
+			
+			let positions = []
+			let colors = []
+			const color = new THREE.Color();
+
+			for (let j=0; j<points_xyz.count * 3; j+=3) {
+				let x = points_xyz.array[j]
+				let y = points_xyz.array[j+1]
+				let z = points_xyz.array[j+2]
+
+				positions.push( x, y, z );
+				
+				const vx = ( x ) / 60;
+				const vy = ( y + 4 ) / 4;
+				const vz = ( z + 32) / 32;
+
+				color.setRGB( vx, vy, vz, THREE.SRGBColorSpace );
+				// color.setRGB( vx, vy, vz, THREE.LinearSRGBColorSpace );
+				colors.push(color.r, color.g, color.b);
+			}
+			
+			points_i.geometry.setAttribute('color', new THREE.Float32BufferAttribute( colors, 3 ))
+
+			geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
+			geometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
+			geometry.computeBoundingSphere();
+
+			const material = new THREE.PointsMaterial( { size: 0.1, vertexColors: true } );
+			let points_i_new = new THREE.Points(geometry, material)
+
+			pointCloudFrames[i] = points_i_new
+			// break
 		}
-		scene.add(points);
+		// points.setAttribute
+		// scene.add(points);
 
 		controls = new OrbitControls(camera, renderer.domElement);
 		controls.autoRotate = true;
@@ -87,7 +132,23 @@
 		if (delta > interval) {
 			// Update the point cloud frame
 			scene.remove(points);
-			frameIndex = (frameIndex + 1) % pointCloudFrames.length;
+
+			console.log(fwd, frameIndex)
+
+			if (frameIndex >= pointCloudFrames.length - 1) {
+				fwd = !fwd
+			}
+
+			if (frameIndex == 1) {
+				fwd = true
+			}
+
+			if (fwd) {
+				frameIndex = (frameIndex + 1) % pointCloudFrames.length;
+			} else {
+				frameIndex = (frameIndex - 1) % pointCloudFrames.length;
+			}
+
 			points = pointCloudFrames[frameIndex];
 			scene.add(points);
 

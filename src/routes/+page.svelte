@@ -159,7 +159,7 @@
 </section>
 -->
 
-<!--
+
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">High Quality LiDAR Data</h2>
 
@@ -169,7 +169,7 @@
 		</div>
 	</div>
 </section>
--->
+
 
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">BibTeX</h2>

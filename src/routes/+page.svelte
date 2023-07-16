@@ -10,7 +10,7 @@
 
 	// NOTE(julieta) we can change this to AMSDS or smtn
 	// let datasetName = 'Pit30M';
-	let datasetName = 'Aurora MSDS';
+	let datasetName = 'Aurora Multi-Sensor Dataset';
 
 	export let samples = [
 		{ src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
@@ -26,7 +26,7 @@
 
 <header class="bg-white shadow-sm py-4">
 	<div class="container mx-auto px-4 flex justify-between items-center">
-		<div class="text-xl font-semibold">Aurora Multi-Sensor Dataset (MSDS)</div>
+		<div class="text-xl font-semibold">{datasetName}</div>
 		<nav>
 			<ul class="flex space-x-6">
 				<li><a href="#" class="text-gray-600 hover:text-gray-900">Home</a></li>
@@ -50,13 +50,27 @@
 
 <!-- Background image 1 from https://unsplash.com/photos/F6Kj8ovnUvM -->
 <!-- Background image 2 from https://unsplash.com/photos/yLcPSvJkGrM -->
-<section class="bg-cover bg-center h-96 relative" style="background-image: url('hero_bg.jpg')">
-	<div class="container mx-auto px-4 h-full flex items-center backdrop-blur-md bg-black/30">
-		<div class="text-white">
+<!-- <section class="bg-cover bg-center h-96 relative" style="background-image: url('hero_bg.jpg')"> -->
+<section class="h-96 relative">
+	<div class="container mx-auto px-4 h-full flex items-center backdrop-blur-xl">
+		<div class="text-black text-center w-full">
 			<h1 class="text-4xl font-bold">
-				{datasetName}: The Dataset for Global Localization in the Age of Self-Driving Cars
+				{datasetName}: The Largest Self-Driving Dataset Released to Date
 			</h1>
-			<p class="text-xl mt-4">Explore our comprehensive self-driving dataset.</p>
+			<p class="text-2xl mt-4">
+				<a class="text-blue-600 hover:underline" href="https://una-dinosauria.github.io/">Julieta Martinez</a><sup>1</sup>
+				<a class="text-blue-600 hover:underline" href="https://www.cs.toronto.edu/~doubovs/">Sasha Doubov</a><sup>1,2</sup>, 
+				Jack Fan<sup>1</sup>, 
+				<a class="text-blue-600 hover:underline" href="https://siegedog.com/">Ioan Andrei Bârsan</a><sup>1,3</sup>, 
+				<a class="text-blue-600 hover:underline" href="https://shenlong.web.illinois.edu/">Shenlong Wang</a><sup>1,3</sup>, 
+				Gellért Máttyus<sup>1</sup>, 
+				<a class="text-blue-600 hover:underline" href="http://www.cs.toronto.edu/~urtasun/">Raquel Urtasun</a><sup>1,3</sup>
+			</p>
+			<p class="text-2xl mt-4">
+				<sup>1</sup> Uber Advanced Technologies Group,
+				<sup>2</sup>University of Waterloo,
+				<sup>3</sup>University of Toronto
+			</p>
 			<a
 				href="https://arxiv.org/abs/2012.12437"
 				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded-l-lg inline-block text-2xl">
@@ -84,17 +98,29 @@
 
 <section class="container mx-auto px-4 py-4">
 	<div class="grid">
-		<h2 class="text-3xl font-bold mb-8">Introducing {datasetName}</h2>
+		<h2 class="text-3xl font-bold mb-8">Video</h2>
+		<!-- <p class="text-xl"></p> -->
+		<!-- <br /> -->
 		<div>
 			<YouTube id="hJ6A_1YSITo" />
 		</div>
 	</div>
 </section>
 
+<section class="container mx-auto px-4 py-4">
+	<div class="grid">
+		<h2 class="text-3xl font-bold mb-8">Abstract</h2>
+		<div><p class="text-xl">
+			We are interested in understanding whether retrieval-based localization approaches are good enough in the context of self-driving vehicles. Towards this goal, we introduce Pit30M, a new image and LiDAR dataset with over 30 million frames, which is 10 to 100 times larger than those used in previous work. Pit30M is captured under diverse conditions (i.e., season, weather, time of the day, traffic), and provides accurate localization ground truth. We also automatically annotate our dataset with historical weather and astronomical data, as well as with image and LiDAR semantic segmentation as a proxy measure for occlusion. We benchmark multiple existing methods for image and LiDAR retrieval and, in the process, introduce a simple, yet effective convolutional network-based LiDAR retrieval method that is competitive with the state of the art. Our work provides, for the first time, a benchmark for sub-metre retrieval-based localization at city scale.</p>
+			<!-- The dataset, additional experimental results, as well as more information about the sensors, calibration, and metadata, are available on the project website: this https URL</p> -->
+		</div>
+	</div>
+</section>
+
+<!--
 <section class="container mx-auto px-4 py-12">
 	<p class="text-lg mb-8">Brief description of the dataset, its purpose, and key features.</p>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		<!-- Add more metrics if needed -->
 		<div class="border p-4 rounded">
 			<h3 class="font-bold mb-4">Partitions</h3>
 			<p>Value or description of the dataset partitions</p>
@@ -117,7 +143,9 @@
 		</div>
 	</div>
 </section>
+-->
 
+<!--
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">Sample Data</h2>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -129,7 +157,9 @@
 		{/each}
 	</div>
 </section>
+-->
 
+<!--
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">High Quality LiDAR Data</h2>
 
@@ -139,11 +169,32 @@
 		</div>
 	</div>
 </section>
+-->
 
+<section class="container mx-auto px-4 py-12">
+	<h2 class="text-3xl font-bold mb-8">BibTeX</h2>
+	<span class="text-lg">If you find our dataset useful, consider citing our work:</span>
+	<div class="bg-gray-100">
+		<pre><code>
+		{`
+		@inproceedings{martinez2020pit30m,
+			title={Pit30m: A benchmark for global localization in the age of self-driving cars},
+			author={Martinez, Julieta and Doubov, Sasha and Fan, Jack and B{\^a}rsan, Ioan Andrei and Wang, Shenlong and 
+				M{\'a}ttyus, Gell{\'e}rt and Urtasun, Raquel},
+			booktitle={{IROS}},
+			pages={4477--4484},
+			year={2020},
+			organization={IEEE}
+		}
+		`}
+		</code></pre>
+	</div>
+</section>
+
+<!--
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">Why Choose {datasetName}?</h2>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		<!-- Add more features if needed -->
 		<div>
 			<div class="text-5xl mb-4">🔍</div>
 			<h3 class="font-bold mb-4">High-Quality Data</h3>
@@ -170,6 +221,7 @@
 		</div>
 	</div>
 </section>
+-->
 
 <footer class="bg-gray-200 py-8">
 	<div class="container mx-auto px-4">

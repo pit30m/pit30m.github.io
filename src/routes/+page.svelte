@@ -12,12 +12,12 @@
 	// let datasetName = 'Pit30M';
 	let datasetName = 'Aurora Multi-Sensor Dataset';
 
-	export let samples = [
-		{ src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
-		{ src: 'sample_image_2.jpg', alt: 'Highway - Nighttime' },
-		{ src: 'sample_image_3.jpg', alt: 'Lidar Scan - Intersection' }
-		// ...more samples
-	];
+	// export let samples = [
+	// 	{ src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
+	// 	{ src: 'sample_image_2.jpg', alt: 'Highway - Nighttime' },
+	// 	{ src: 'sample_image_3.jpg', alt: 'Lidar Scan - Intersection' }
+	// 	// ...more samples
+	// ];
 </script>
 
 <svelte:head>

@@ -179,8 +179,15 @@
 		{`
 		@inproceedings{martinez2020pit30m,
 			title={Pit30m: A benchmark for global localization in the age of self-driving cars},
-			author={Martinez, Julieta and Doubov, Sasha and Fan, Jack and B{\^a}rsan, Ioan Andrei and Wang, Shenlong and 
-				M{\'a}ttyus, Gell{\'e}rt and Urtasun, Raquel},
+			author={
+				Martinez, Julieta and 
+				Doubov, Sasha and 
+				Fan, Jack and 
+				B{\^a}rsan, Ioan Andrei 
+				and Wang, Shenlong and
+				M{\'a}ttyus, Gell{\'e}rt 
+				and Urtasun, Raquel
+			},
 			booktitle={{IROS}},
 			pages={4477--4484},
 			year={2020},

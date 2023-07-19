@@ -174,20 +174,13 @@
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">BibTeX</h2>
 	<span class="text-lg">If you find our dataset useful, consider citing our work:</span>
-	<div class="bg-gray-100">
+	<div class="bg-gray-100 overflow-x-auto">
 		<pre><code>
 		{`
 		@inproceedings{martinez2020pit30m,
 			title={Pit30m: A benchmark for global localization in the age of self-driving cars},
-			author={
-				Martinez, Julieta and 
-				Doubov, Sasha and 
-				Fan, Jack and 
-				B{\^a}rsan, Ioan Andrei 
-				and Wang, Shenlong and
-				M{\'a}ttyus, Gell{\'e}rt 
-				and Urtasun, Raquel
-			},
+			author={Martinez, Julieta and Doubov, Sasha and Fan, Jack and B{\^a}rsan, Ioan Andrei and Wang, Shenlong and 
+				M{\'a}ttyus, Gell{\'e}rt and Urtasun, Raquel},
 			booktitle={{IROS}},
 			pages={4477--4484},
 			year={2020},

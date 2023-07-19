@@ -133,7 +133,7 @@
 			// Update the point cloud frame
 			scene.remove(points);
 
-			console.log(fwd, frameIndex)
+			// console.log(fwd, frameIndex)
 
 			if (frameIndex >= pointCloudFrames.length - 1) {
 				fwd = !fwd

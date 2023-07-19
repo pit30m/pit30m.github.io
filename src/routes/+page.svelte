@@ -159,6 +159,13 @@
 </section>
 -->
 
+<section class="container mx-auto px-4 py-12">
+	<h2 class="text-3xl font-bold mb-8">Paper (IROS 2020 Best Application Paper Finalist)</h2>
+	<a href="https://arxiv.org/abs/2012.12437">
+		<img src="combined.jpeg" alt="paper"/>
+	</a>
+</section>
+
 
 <section class="container mx-auto px-4 py-12">
 	<h2 class="text-3xl font-bold mb-8">High Quality LiDAR Data</h2>

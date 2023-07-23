@@ -146,7 +146,7 @@
 
 
 <section class="container mx-auto px-4 py-12">
-	<h2 class="text-4xl font-extrabold dark:text-white">High Quality LiDAR Data</h2>
+	<h2 class="text-4xl font-extrabold dark:text-white">High Quality LiDAR</h2>
 	<div class="grid gap-6 h-96">
 		<div class="pt-4">
 			<PointCloudViewer />
@@ -156,22 +156,20 @@
 
 
 <section class="container mx-auto px-4 py-12">
-	<div class="grid">
+	<div class="grid overflow-x-auto">
 		<h2 class="text-4xl font-extrabold dark:text-white">BibTeX</h2>
 		<div class="text-lg pt-4">If you find our dataset useful, consider citing our work:
-			<div class="bg-gray-100 overflow-x-auto">
-				<pre><code>
-				{`
-				@inproceedings{martinez2020pit30m,
-					title={Pit30m: A benchmark for global localization in the age of self-driving cars},
-					author={Martinez, Julieta and Doubov, Sasha and Fan, Jack and B{\^a}rsan, Ioan Andrei and Wang, Shenlong and 
-						M{\'a}ttyus, Gell{\'e}rt and Urtasun, Raquel},
-					booktitle={{IROS}},
-					pages={4477--4484},
-					year={2020},
-					organization={IEEE}
-				}
-				`}
+			<div class="bg-gray-100">
+				<pre><code>{`
+  @inproceedings{martinez2020pit30m,
+	title={Pit30m: A benchmark for global localization in the age of self-driving cars},
+	author={Martinez, Julieta and Doubov, Sasha and Fan, Jack and B{\^a}rsan, Ioan Andrei and Wang, Shenlong and 
+	  M{\'a}ttyus, Gell{\'e}rt and Urtasun, Raquel},
+	booktitle={{IROS}},
+	pages={4477--4484},
+	year={2020},
+	organization={IEEE}
+  }`}
 				</code></pre>
 			</div>
 		</div>

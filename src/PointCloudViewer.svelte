@@ -1,12 +1,17 @@
 <!-- PointCloudViewer.svelte -->
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { PCDLoader } from 'three/examples/jsm/loaders/PCDLoader';
 	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 	let container;
-	let scene, camera, renderer, points;
+	let scene: THREE.Scene;
+	let meow;
+	let points;
+	// let points: Array<Vec<3>>;
+	let renderer: THREE.WebGLRenderer;
+	let camera: THREE.PerspectiveCamera;
 	let frameIndex = 1;
 	let pointCloudFrames = [];
 
@@ -19,9 +24,9 @@
 	let rotate_speed = 0;
 	let fwd = true;
 
-	let r = 20;
+	// let r = 20;
 
-	let controls;
+	let controls: OrbitControls;
 
 	onMount(async () => {
 		await loadPointCloudFrames();
@@ -49,8 +54,8 @@
 			pcdUrls.map(
 				(url) =>
 					new Promise((resolve) => {
-						loader.load(url, (points) => {
-							resolve(points);
+						loader.load(url, (meow) => {
+							resolve(meow);
 						});
 					})
 			)
@@ -59,7 +64,8 @@
 
 	function init() {
 		scene = new THREE.Scene();
-		camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+		camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
+		
 		renderer = new THREE.WebGLRenderer();
 		renderer.setSize(container.clientWidth, container.clientHeight);
 		container.appendChild(renderer.domElement);
@@ -111,16 +117,19 @@
 			let points_i_new = new THREE.Points(geometry, material)
 
 			pointCloudFrames[i] = points_i_new
-			// break
 		}
-		// points.setAttribute
-		// scene.add(points);
 
 		controls = new OrbitControls(camera, renderer.domElement);
 		controls.autoRotate = true;
 		controls.autoRotateSpeed = rotate_speed;
 
-		camera.position.set(r, r, r);
+		// NOTE(julieta) camera.lookAt does not work with OrbitalControls, we have to set the lookAt vector as the
+		// target of the control instead. See https://stackoverflow.com/a/10337588/1884420
+		// camera.lookAt(new THREE.Vector3(0, 0, 0))
+		controls.target = new THREE.Vector3(20, 0, 0);
+
+		camera.position.set(-20, 10, 0);
+
 		controls.update();
 	}
 

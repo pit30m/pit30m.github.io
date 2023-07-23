@@ -1,107 +1,123 @@
 <script lang="ts">
+	// External Libraries
 	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
 	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte';
 	import FaYoutube from 'svelte-icons/fa/FaYoutube.svelte';
 	import FaFilePdf from 'svelte-icons/fa/FaFilePdf.svelte';
 	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
-
-	import PointCloudViewer from '../PointCloudViewer.svelte';
 	import YouTube from 'svelte-youtube-embed';
-
-	// NOTE(julieta) we can change this to AMSDS or smtn
-	// let datasetName = 'Pit30M';
+	
+	// Flowbite
+	import { Navbar, NavBrand, NavLi, NavUl, Button, NavHamburger } from 'flowbite-svelte'
+  
+	// Custom Components
+	import PointCloudViewer from '../PointCloudViewer.svelte';
+  
 	let datasetName = 'Aurora Multi-Sensor Dataset';
 
-	// export let samples = [
-	// 	{ src: 'sample_image_1.jpg', alt: 'Urban Scene - Daytime' },
-	// 	{ src: 'sample_image_2.jpg', alt: 'Highway - Nighttime' },
-	// 	{ src: 'sample_image_3.jpg', alt: 'Lidar Scan - Intersection' }
-	// 	// ...more samples
-	// ];
-</script>
+</script>  
 
 <svelte:head>
 	<title>Aurora Multi-Sensor Dataset</title>
 </svelte:head>
 
-<header class="bg-white shadow-sm py-4">
-	<div class="container mx-auto px-4 flex justify-between items-center">
-		<div class="text-xl font-semibold">{datasetName}</div>
+
+<!-- <header class="bg-white">
+	<div class="max-w-screen-l flex flex-wrap items-center justify-between mx-auto">
+		
 		<nav>
 			<ul class="flex space-x-6">
 				<li><a href="#" class="text-gray-600 hover:text-gray-900">Home</a></li>
 				<li>
-					<a href="https://github.com/pit30m/pit30m" class="text-gray-600 hover:text-gray-900">DevKit</a>
-				</li>
-				<li>
-					<a href="https://youtu.be/hJ6A_1YSITo" class="text-gray-600 hover:text-gray-900">Video</a>
-				</li>
-				<li>
-					<a href="https://arxiv.org/abs/2012.12437" class="text-gray-600 hover:text-gray-900">Paper</a>
-				</li>
-				<li>
-					<a href="https://github.com/pit30m/pit30m" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-						>Download Dataset</a>
+					<a " class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+						
+					</a>
 				</li>
 			</ul>
 		</nav>
 	</div>
-</header>
+</header> -->
 
+<Navbar let:hidden let:toggle>
+	<div class="text-xl font-semibold">{datasetName}</div>
+	<!-- <NavBrand href="/">
+		<img
+		src="/images/flowbite-svelte-icon-logo.svg"
+		class="mr-3 h-6 sm:h-9"
+		alt="Flowbite Logo"
+		/>
+		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+		Flowbite
+		</span>
+	</NavBrand> -->
+	<div class="flex md:order-2">
+		<Button size="sm" href="https://github.com/pit30m/pit30m">Download Dataset</Button>
+		<NavHamburger on:click={toggle} />
+	</div>
+	<NavUl {hidden}>
+		<NavLi href="https://github.com/pit30m/pit30m" active={true}>DevKit</NavLi>
+		<NavLi href="https://youtu.be/hJ6A_1YSITo">Video</NavLi>
+		<NavLi href="https://arxiv.org/abs/2012.12437">Paper</NavLi>
+	</NavUl>
+</Navbar>
+
+
+
+<body>
 <!-- Background image 1 from https://unsplash.com/photos/F6Kj8ovnUvM -->
 <!-- Background image 2 from https://unsplash.com/photos/yLcPSvJkGrM -->
 <!-- <section class="bg-cover bg-center h-96 relative" style="background-image: url('hero_bg.jpg')"> -->
-<section class="h-96 relative">
-	<div class="container mx-auto px-4 h-full flex items-center backdrop-blur-xl">
-		<div class="text-black text-center w-full">
-			<h1 class="text-4xl font-bold">
-				{datasetName}: The Largest Self-Driving Dataset Released to Date
-			</h1>
-			<p class="text-2xl mt-4">
-				<a class="text-blue-600 hover:underline" href="https://una-dinosauria.github.io/">Julieta Martinez</a><sup>1</sup>
-				<a class="text-blue-600 hover:underline" href="https://www.cs.toronto.edu/~doubovs/">Sasha Doubov</a><sup>1,2</sup>, 
-				Jack Fan<sup>1</sup>, 
-				<a class="text-blue-600 hover:underline" href="https://siegedog.com/">Ioan Andrei Bârsan</a><sup>1,3</sup>, 
-				<a class="text-blue-600 hover:underline" href="https://shenlong.web.illinois.edu/">Shenlong Wang</a><sup>1,3</sup>, 
-				Gellért Máttyus<sup>1</sup>, 
-				<a class="text-blue-600 hover:underline" href="http://www.cs.toronto.edu/~urtasun/">Raquel Urtasun</a><sup>1,3</sup>
-			</p>
-			<p class="text-2xl mt-4">
-				<sup>1</sup> Uber Advanced Technologies Group,
-				<sup>2</sup>University of Waterloo,
-				<sup>3</sup>University of Toronto
-			</p>
-			<a
-				href="https://arxiv.org/abs/2012.12437"
-				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded-l-lg inline-block text-2xl">
-				<span class="icon">
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+			{datasetName}: The Largest Self-Driving Dataset Released to Date
+		</h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+			<a class="text-blue-600 hover:underline" href="https://una-dinosauria.github.io/">Julieta Martinez</a><sup>1</sup>
+			<a class="text-blue-600 hover:underline" href="https://www.cs.toronto.edu/~doubovs/">Sasha Doubov</a><sup>1,2</sup>, 
+			Jack Fan<sup>1</sup>, 
+			<a class="text-blue-600 hover:underline" href="https://siegedog.com/">Ioan Andrei Bârsan</a><sup>1,3</sup>, 
+			<a class="text-blue-600 hover:underline" href="https://shenlong.web.illinois.edu/">Shenlong Wang</a><sup>1,3</sup>, 
+			Gellért Máttyus<sup>1</sup>, 
+			<a class="text-blue-600 hover:underline" href="http://www.cs.toronto.edu/~urtasun/">Raquel Urtasun</a><sup>1,3</sup>
+		</p>
+		<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+			<sup>1</sup>Uber Advanced Technologies Group
+			<sup>2</sup>University of Waterloo
+			<sup>3</sup>University of Toronto
+		</p>
+        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <a href="https://arxiv.org/abs/2012.12437" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                Paper
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 					<FaFilePdf />
-				</span> Paper
-			</a>
-			<a
-				href="https://youtu.be/hJ6A_1YSITo"
-				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 inline-block text-2xl">
-				<span class="icon">
-					<FaYoutube />
-				</span> Video
-			</a>
-			<a
-				href="https://github.com/pit30m/pit30m"
-				class="bg-blue-600 hover:bg-blue-700 text-white mt-6 px-6 py-3 rounded-r-lg inline-block text-2xl">
-				<span class="icon">
+				</svg>
+            </a>
+			<a href="https://github.com/pit30m/pit30m" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                DevKit
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 					<FaGithub />
-				</span> DevKit
-			</a>
-		</div>
-	</div>
+				</svg>
+            </a>
+            <a href="https://youtu.be/hJ6A_1YSITo" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<FaYoutube />	
+				</svg>
+                Watch video
+            </a>  
+        </div>
+        
+    </div>
 </section>
 
 <section class="container mx-auto px-4 py-4">
 	<div class="grid">
-		<h2 class="text-3xl font-bold mb-8">Video</h2>
+		<h2 class="text-4xl font-extrabold dark:text-white">Video</h2>
 		<!-- <p class="text-xl"></p> -->
 		<!-- <br /> -->
-		<div>
+		<div class="pt-4">
 			<YouTube id="hJ6A_1YSITo" />
 		</div>
 	</div>
@@ -109,69 +125,30 @@
 
 <section class="container mx-auto px-4 py-4">
 	<div class="grid">
-		<h2 class="text-3xl font-bold mb-8">Abstract</h2>
-		<div><p class="text-xl">
+		<h2 class="text-4xl font-extrabold dark:text-white">Abstract</h2>
+		<div class="pt-4"><p class="text-xl">
 			We are interested in understanding whether retrieval-based localization approaches are good enough in the context of self-driving vehicles. Towards this goal, we introduce Pit30M, a new image and LiDAR dataset with over 30 million frames, which is 10 to 100 times larger than those used in previous work. Pit30M is captured under diverse conditions (i.e., season, weather, time of the day, traffic), and provides accurate localization ground truth. We also automatically annotate our dataset with historical weather and astronomical data, as well as with image and LiDAR semantic segmentation as a proxy measure for occlusion. We benchmark multiple existing methods for image and LiDAR retrieval and, in the process, introduce a simple, yet effective convolutional network-based LiDAR retrieval method that is competitive with the state of the art. Our work provides, for the first time, a benchmark for sub-metre retrieval-based localization at city scale.</p>
 			<!-- The dataset, additional experimental results, as well as more information about the sensors, calibration, and metadata, are available on the project website: this https URL</p> -->
 		</div>
 	</div>
 </section>
 
-<!--
 <section class="container mx-auto px-4 py-12">
-	<p class="text-lg mb-8">Brief description of the dataset, its purpose, and key features.</p>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		<div class="border p-4 rounded">
-			<h3 class="font-bold mb-4">Partitions</h3>
-			<p>Value or description of the dataset partitions</p>
-		</div>
-		<div class="border p-4 rounded">
-			<h3 class="font-bold mb-4">Number of Images</h3>
-			<p>Value or description of the number of images</p>
-		</div>
-		<div class="border p-4 rounded">
-			<h3 class="font-bold mb-4">Sensors</h3>
-			<p>Value or description of the sensors used</p>
-		</div>
-		<div class="border p-4 rounded">
-			<h3 class="font-bold mb-4">Location</h3>
-			<p>Value or description of the dataset location</p>
-		</div>
-		<div class="border p-4 rounded">
-			<h3 class="font-bold mb-4">Metadata</h3>
-			<p>Value or description of the metadata included</p>
+	<div class="grid">
+		<h2 class="text-4xl font-extrabold dark:text-white">Paper (IROS 2020 Best Application Paper Finalist)</h2>
+		<div class="pt-4">
+			<a href="https://arxiv.org/abs/2012.12437">
+				<img src="combined.jpeg" alt="paper"/>
+			</a>
 		</div>
 	</div>
 </section>
--->
-
-<!--
-<section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">Sample Data</h2>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		{#each samples as { src, alt }}
-			<div>
-				<img {src} {alt} class="w-full rounded shadow" />
-				<p class="mt-4">{alt}</p>
-			</div>
-		{/each}
-	</div>
-</section>
--->
-
-<section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">Paper (IROS 2020 Best Application Paper Finalist)</h2>
-	<a href="https://arxiv.org/abs/2012.12437">
-		<img src="combined.jpeg" alt="paper"/>
-	</a>
-</section>
 
 
 <section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">High Quality LiDAR Data</h2>
-
+	<h2 class="text-4xl font-extrabold dark:text-white">High Quality LiDAR Data</h2>
 	<div class="grid gap-6 h-screen">
-		<div>
+		<div class="pt-4">
 			<PointCloudViewer />
 		</div>
 	</div>
@@ -179,7 +156,7 @@
 
 
 <section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">BibTeX</h2>
+	<h2 class="text-4xl font-extrabold dark:text-white">BibTeX</h2>
 	<span class="text-lg">If you find our dataset useful, consider citing our work:</span>
 	<div class="bg-gray-100 overflow-x-auto">
 		<pre><code>
@@ -198,37 +175,7 @@
 	</div>
 </section>
 
-<!--
-<section class="container mx-auto px-4 py-12">
-	<h2 class="text-3xl font-bold mb-8">Why Choose {datasetName}?</h2>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		<div>
-			<div class="text-5xl mb-4">🔍</div>
-			<h3 class="font-bold mb-4">High-Quality Data</h3>
-			<p>
-				Our dataset has been meticulously curated to ensure accurate, reliable, and diverse data for benchmarking
-				localization algorithms.
-			</p>
-		</div>
-		<div>
-			<div class="text-5xl mb-4">📄</div>
-			<h3 class="font-bold mb-4">Comprehensive Metadata</h3>
-			<p>
-				Pit30m includes detailed metadata for each data point, providing valuable context and facilitating in-depth
-				analysis.
-			</p>
-		</div>
-		<div>
-			<div class="text-5xl mb-4">🔓</div>
-			<h3 class="font-bold mb-4">Open-Source</h3>
-			<p>
-				Pit30m is freely available for academic and research purposes, promoting collaboration and innovation in the
-				self-driving car community.
-			</p>
-		</div>
-	</div>
-</section>
--->
+</body>
 
 <footer class="bg-gray-200 py-8">
 	<div class="container mx-auto px-4">
